@@ -13,24 +13,27 @@ namespace GenMan32_45
             string assembly = string.Empty;
             bool willBeManifest = false;
             bool willBeAssembly = false;
-            for (int i = 0;i<args.Length;++i)
+            for (int i = 0; i < args.Length; ++i)
             {
                 var arg = args[i];
                 if (arg == "-manifest")
                 {
                     willBeManifest = true;
-                }else if (arg == "-assembly")
+                }
+                else if (arg == "-assembly")
                 {
                     willBeAssembly = true;
-                }else if (willBeManifest)
+                }
+                else if (willBeManifest)
                 {
                     manifest = arg;
-                }else if (willBeAssembly)
+                }
+                else if (willBeAssembly)
                 {
                     assembly = arg;
                 }
             }
-            if(string.IsNullOrEmpty(assembly) || string.IsNullOrEmpty(manifest))
+            if (string.IsNullOrEmpty(assembly) || string.IsNullOrEmpty(manifest))
             {
                 Console.WriteLine("usage: genman32_45 -assembly assembly_full_path -manifest output_manifest");
                 Environment.Exit(-1);
